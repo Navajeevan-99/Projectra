@@ -1,0 +1,22 @@
+.Navbarinner{
+    width: 100%;
+    height: 75px;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+.usernavbar{
+    width: 400px;
+    margin-left: auto;
+}
+.Navbarouter{
+    width: 100%;
+    height: 75px;
+}
+.Navmenu{
+    font-size: 25px;
+    color: white;
+    height: 75px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
