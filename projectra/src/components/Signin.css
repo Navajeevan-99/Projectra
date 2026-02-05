@@ -1,0 +1,18 @@
+.formsignin{
+    background-color: rgba(255, 255, 255, 0.1);
+
+    border-radius: 10px;
+    border: solid 5px blue;
+    width: 400px;
+    height: auto;
+    font-size: 15px;
+    font-weight: bold;
+   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    
+}
+.tablesignin{
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}

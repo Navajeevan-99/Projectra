@@ -6,6 +6,7 @@ import Signin from './components/Signin';
 import { useState } from 'react';
 import Kanban from './components/Kanban';
 import Projects from './components/Projects';
+import Userdetails from './components/Userdetails';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
         <R path='/login' element={<Signin/>}/>
         <R path='/kanban' element={<Kanban/>}/>
         <R path='/projects' element={<Projects/>}/>
+        <R path='/user' element={<Userdetails/>}/>
       </Rs>
       </Br>
      

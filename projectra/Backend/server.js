@@ -33,11 +33,14 @@ server.get('/api/users', async (req, res) => {
 server.post('/api/users',async (req,res)=>{
     const {name,email,password}=req.body;
     console.log(name)
-    let useradded=adduser(db,req.body);
-    if (useradded===true){
+    let useradded= await adduser(db,req.body);
+    console.log(useradded)
+    if (useradded===false){
+        console.log("adding")
     res.json({msg: "true"});
     }
     else{
+        console.log('not adding')
         res.json({msg: "false"});
     }
 })

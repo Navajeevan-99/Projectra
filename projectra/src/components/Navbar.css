@@ -12,11 +12,49 @@
 .Navbarouter{
     width: 100%;
     height: 75px;
+    color:white
 }
 .Navmenu{
     font-size: 25px;
-    color: white;
     height: 75px;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.projectname{
+    
+    font-weight: bold;
+    color: rgba(255,255,255,0.8);
+ 
+}
+.searchouter{
+    width: 600px;
+    margin-left: auto;
+   
+    
+}
+.searchinner{
+    height: 50px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+}
+.searchbox{
+    border: none;
+    width: 450px;
+    height: 48px;
+    background-color: white;
+}
+.searchicon{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.navbardown{
+    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 2px;
 }

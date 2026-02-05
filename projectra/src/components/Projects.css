@@ -1,0 +1,73 @@
+.projectaddingbutton{
+    border: dashed 4px  black;
+    color: black;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+   
+    border-radius: 10px;
+    
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px 150px 150px 150px 150px 150px;
+
+}
+.projectbutton{
+    color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.7;
+}
+.projectbutton:focus{
+    color: violet;
+    .projectaddingbutton{
+        color: violet;
+        border: dashed 4px violet;
+    }
+}
+.addingprojectouter{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    width: 300px;
+    height: 500px;
+    background-color: blue;
+    position: fixed;
+    top: 25%;
+    left: 40%;
+    
+   
+}
+.closebutton{
+    background-color: rgba(232, 3, 3, 1);
+    border-radius: 5px;
+    
+}
+.projectinput{
+
+    border-bottom: solid 2px black;
+    border-radius: 0px;
+    width: 200px;
+    background-color: white;
+    font-size: 17px;
+    position: relative;
+    top: 40%;
+    left: 15%;
+
+
+}
+.projectinput:focus{
+    outline: none;
+}
+.addingprojectinner{
+    width:300px;
+    height: 400px;
+    background-color: white;
+}
+.nextbutton{
+    position: relative;
+    top: 80%;
+    left: 0%;
+}

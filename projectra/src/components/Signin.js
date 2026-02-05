@@ -2,8 +2,13 @@ import React, { useEffect } from 'react'
 import { useState,useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import {useDispatch,useSelector} from 'react-redux';
+import { setUserDetails } from './store/userSlice';
+import './Signin.css';
+
 const Signin = () => {
     const {state}=useLocation();
+    const dispatch=useDispatch()
     const navigate=useNavigate();
     const [name,setname]=useState('')
     const [email,setemail]=useState ('');
@@ -25,14 +30,18 @@ const Signin = () => {
         let u;
         users.current.map((user)=>{
             if (user.email===email && user.password===password){
+                
                 userexist=true;
                 u=user;
             }
            
         })
         if (userexist){
-                alert('Sucessfully Sign in');                
-                navigate('/projects',{state: u})
+                console.log(u);
+                alert('Sucessfully Sign in');
+                await dispatch(setUserDetails(u));
+                navigate('/projects');
+                
                 return;
         }
         alert('User does not exists');
@@ -55,10 +64,11 @@ const Signin = () => {
 
     },[])
   return (
-    <div>
+    <div className='center fullpage'>
 
-    <form>
-        <table>
+    <form className='formsignin center column'>
+        <h1>Sign In</h1>
+        <table className='tablesingin '>
         <tbody>
            
             <tr>

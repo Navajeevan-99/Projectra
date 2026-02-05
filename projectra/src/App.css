@@ -1,4 +1,45 @@
 button{
-    border: none;
-    background-color: rgba(0,0,0,0);
+  border: none;
+  background-color: rgb(0, 21, 255);
+  border-radius: 10px;
+  width: auto;
+  padding: 10px;
+  color: white;
+  margin: 10px;
+  font-weight: bold;
+
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+ 
+
+}
+.row{
+  flex-direction: row;
+}
+.column{
+  flex-direction: column;
+}
+input{
+  border: none;
+  background-color: lightgrey;
+  border-radius: 5px;
+  height: 25px;
+  border-bottom: solid 3px blue;
+  
+}
+.fullpage{
+  width: 100vw;
+  height: 100vh;
+}
+.centervertical{
+  display: flex;
+  align-items: center;
+}
+input:focus{
+  outline:none;
 }
