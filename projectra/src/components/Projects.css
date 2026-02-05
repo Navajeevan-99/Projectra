@@ -71,3 +71,12 @@
     top: 80%;
     left: 0%;
 }
+.projectcard{
+    width: 125px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    color: black;
+    background: radial-gradient(circle,white,lightblue);
+
+}

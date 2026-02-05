@@ -6,12 +6,13 @@ import './Projects.css'
 const Projects =() => { 
   const [addprojectstatus,setaddprojectstatus]=useState({add: false,page: 1});
   const [projectdetails,setprojectdetails]=useState({name:'',board:''});
+  const [projects,setprojects]=useState([]);
   const addproject=()=>{
     setaddprojectstatus({...addprojectstatus,add: true});
     
   }
   const cancelProject=()=>{
-    setaddprojectstatus({...addprojectstatus,add:false});
+    setaddprojectstatus({...addprojectstatus,add:false,page:1});
   }
   const changeprojectname=(e)=>{
       setprojectdetails({...projectdetails,name: e.target.value});  
@@ -21,7 +22,20 @@ const Projects =() => {
   }
   const createProject=()=>{
     
+    setprojects([...projects,projectdetails])
+    setprojectdetails({name:'',board:''});
+    setaddprojectstatus({...addprojectstatus,add: false,page: 1})
+    console.log(projects);
+
   }
+  const boardChange=async (e)=>{
+    await setprojectdetails({...projectdetails,board: e.target.value});
+    console.log(projectdetails);
+  }
+  useEffect(()=>{
+    console.log(projects);
+  },[projects])
+  
   return (
     <div>
         <div>
@@ -37,7 +51,17 @@ const Projects =() => {
             </div>
             <p>Create Project</p>   
             </button>                 
-          </div>         
+          </div> 
+          {
+            projects.map((project,id)=>
+              <button key={id} className='projectcard'>
+              <h2 style={{overflow: 'hidden'}}>{project.name}</h2>
+              
+              <hr style={{border: 'solid 1px black'}}/>             
+              <p>{project.board}</p>
+              </button>
+            )
+          }        
         </div>
          {addprojectstatus.add && addprojectstatus.page==1?<div className='addingprojectouter'>
             <button className='closebutton' onClick={cancelProject}>X</button>
@@ -52,11 +76,12 @@ const Projects =() => {
             </div>:addprojectstatus.page==2? <div className='addingprojectouter'>
             <button className='closebutton' onClick={cancelProject}>X</button>
             <br/>
-            <div className='addingprojectinner'>
-            <input type='text' value={projectdetails.name} onChange={changeprojectname} className='projectinput' placeholder='Enter your projectname ...'/>
-              
+            <div className='addingprojectinner'>              
+              <input type='radio' name='board' id='kanban' value='kanban' onChange={boardChange}/>
+              <label htmlFor='kanban'>Kanban</label>
+              <input type='radio' name='board' id='scrum' value='scrum' onChange={boardChange}/>
+              <label htmlFor='scrum'>scrum</label>
               <button className='nextbutton' onClick={createProject}>Create</button>
-            
             </div>
             
             </div>:<div></div>     
