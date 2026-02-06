@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Userdetails from './Userdetails'
 import Navbar from './Navbar'
 import { FaPlus } from "react-icons/fa6";
-import './Projects.css'
+import './Projects.css';
+import { useNavigate } from 'react-router-dom';
 const Projects =() => { 
+  const navigate=useNavigate();
   const [addprojectstatus,setaddprojectstatus]=useState({add: false,page: 1});
   const [projectdetails,setprojectdetails]=useState({name:'',board:''});
   const [projects,setprojects]=useState([]);
@@ -34,7 +36,12 @@ const Projects =() => {
   }
   useEffect(()=>{
     console.log(projects);
-  },[projects])
+  },[projects]);
+  const gotoboard=(e)=>{
+    console.log(e.currentTarget.id);
+    navigate('/kanban');
+    
+  }
   
   return (
     <div>
@@ -54,7 +61,10 @@ const Projects =() => {
           </div> 
           {
             projects.map((project,id)=>
-              <button key={id} className='projectcard'>
+              <button key={id} className='projectcard' onClick={gotoboard} btn-
+              
+              
+              id={id}>
               <h2 style={{overflow: 'hidden'}}>{project.name}</h2>
               
               <hr style={{border: 'solid 1px black'}}/>             

@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Kanban from './components/Kanban';
 import Projects from './components/Projects';
 import Userdetails from './components/Userdetails';
+import { Projectpage } from './components/Projectpage';
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <R path='/kanban' element={<Kanban/>}/>
         <R path='/projects' element={<Projects/>}/>
         <R path='/user' element={<Userdetails/>}/>
+        <R path='/projectpage' element={<Projectpage/>}/>
       </Rs>
       </Br>
      
