@@ -4,9 +4,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 const Userdetails = () => {
   const user=useSelector((state)=> state.user);
-  useEffect(()=>{
-    console.log(user.name);
-  })
+
   return (
     <div className='user'>
         <div className='userdetails center row'>
