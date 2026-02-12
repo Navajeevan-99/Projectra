@@ -43,3 +43,13 @@ input{
 input:focus{
   outline:none;
 }
+textarea{
+  border: none;
+  border-bottom: solid 1px black;
+  overflow-y: hidden;
+  resize: none;
+}
+textarea:focus{
+  outline: none;
+  
+}

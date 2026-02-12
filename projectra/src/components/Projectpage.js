@@ -18,6 +18,18 @@ export const Projectpage = () => {
     console.log(addsprintstatus.page);
     setaddsprintstatus({...addsprintstatus,page : addsprintstatus.page+1});
   }
+  const changestartdate=(e)=>{
+    console.log(e.target.value);
+    setsprint({...sprint,startdate: e.target.value})
+  }
+  const changeenddate=(e)=>{
+    console.log(e.target.value);
+    setsprint({...sprint,startdate: e.target.value})
+  }
+  const changedescription=(e)=>{
+    setsprint({...sprint,description : e.target.value })
+  }
+ 
   return (
     <div>
         <div>
@@ -40,8 +52,9 @@ export const Projectpage = () => {
             <br/>
             <div className='addingprojectinner'>
             <input type='text' value={sprint.name} onChange={changesprintname} className='projectinput' placeholder='Enter your sprintname ...'/>
-            <input type='date'
-              <button className='nextbutton' onClick={nextPage}>Next</button>
+            <input type='date' className='projectinput' value={sprint.startdate} onChange={changestartdate}/>
+            <input type='date' className='projectinput' value={sprint.enddate} onChange={changeenddate}/>
+              <button className='nextbutton' onClick={nextPage} style={{top: '70%'}}>Next</button>
             
             </div>
             
@@ -49,8 +62,11 @@ export const Projectpage = () => {
             <button className='closebutton' onClick={cancelSprint}>X</button>
             <br/>
             <div className='addingprojectinner'>              
-             
-              <button className='nextbutton' onClick={nextPage}>Next</button>
+              <textarea placeholder='Enter the decription' cols='40' className='projectinput projectdescription' style={{height:'100px'}} value={sprint.description}
+              onChange={changedescription}> 
+              </textarea>
+
+              <button className='nextbutton' onClick={nextPage} style={{left: '50%',top:'53%'}}>Create Sprint</button>
             </div>
             
             </div>:<div></div>  
