@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 import { FaPlus } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 export const Projectpage = () => {
+  const navigate=useNavigate()
     let [addsprintstatus,setaddsprintstatus]=useState({add:false,previous:'',page: 1})
     const [sprint,setsprint]=useState({name:'',startdate:'',enddate:'',description:''})
     const [sprints,setsprints]=useState([]);
@@ -10,6 +12,7 @@ export const Projectpage = () => {
     }
      const cancelSprint=()=>{
     setaddsprintstatus({...addsprintstatus,add:false,page:1})
+    setsprint({name:'',startdate:'',enddate:'',description:''});
   }
    const changesprintname=(e)=>{
       setsprint({...sprint,name: e.target.value});  
@@ -24,10 +27,19 @@ export const Projectpage = () => {
   }
   const changeenddate=(e)=>{
     console.log(e.target.value);
-    setsprint({...sprint,startdate: e.target.value})
+    setsprint({...sprint,enddate: e.target.value})
   }
   const changedescription=(e)=>{
     setsprint({...sprint,description : e.target.value })
+  }
+  const createSprint=()=>{
+    setsprints([...sprints,sprint]);
+    setsprint({name:'',startdate:'',enddate:'',description:''});
+  }
+  const gotoboard=(e)=>{
+    console.log(e.currentTarget.id);
+    navigate('/kanban');
+    
   }
  
   return (
@@ -43,8 +55,19 @@ export const Projectpage = () => {
                      </div>
                     <p>Create sprint</p>                    
                 </button>               
-            </div>            
+            </div>
+            {
+            sprints.map((sprint,id)=>
+              <button key={id} className='projectcard' onClick={gotoboard}             
+              id={id}>
+              <h2 style={{overflow: 'auto',scrollbarWidth:'none'}}>{sprint.name}</h2>         
+              
+              </button>
+            )
+          } 
+                        
         </div>
+        
         {
             addsprintstatus.add && 
                 addsprintstatus.page==1?<div className='addingprojectouter'>
@@ -66,7 +89,7 @@ export const Projectpage = () => {
               onChange={changedescription}> 
               </textarea>
 
-              <button className='nextbutton' onClick={nextPage} style={{left: '50%',top:'53%'}}>Create Sprint</button>
+              <button className='nextbutton' onClick={createSprint} style={{left: '50%',top:'53%'}}>Create Sprint</button>
             </div>
             
             </div>:<div></div>  

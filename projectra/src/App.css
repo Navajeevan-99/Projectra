@@ -46,7 +46,8 @@ input:focus{
 textarea{
   border: none;
   border-bottom: solid 1px black;
-  overflow-y: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
   resize: none;
 }
 textarea:focus{

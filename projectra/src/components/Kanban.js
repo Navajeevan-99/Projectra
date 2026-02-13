@@ -16,7 +16,7 @@ const Kanban = () => {
         {/* <div className='center'><Headerkanban props={state} /></div> */}
 
         <div className='center row mainboard'>
-        <Kboard props={{color:'lightcoral',board:'To Do'}}/>
+        <Kboard props={{color:'lightcoral',board:'To Do',addTask: true}}/>
         <Kboard props={{color:'lightyellow',board: 'Do Today'}}/>
         <Kboard props={{color:'lightblue',board: 'Progress'}}/>
         <Kboard props={{color:'lightgreen',board: 'Done'}}/>

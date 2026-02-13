@@ -37,9 +37,9 @@ const Projects =() => {
   useEffect(()=>{
     console.log(projects);
   },[projects]);
-  const gotoboard=(e)=>{
+  const gotoprojectpage=(e)=>{
     console.log(e.currentTarget.id);
-    navigate('/kanban');
+    navigate('/projectpage');
     
   }
   
@@ -61,7 +61,7 @@ const Projects =() => {
           </div> 
           {
             projects.map((project,id)=>
-              <button key={id} className='projectcard' onClick={gotoboard} btn-
+              <button key={id} className='projectcard' onClick={gotoprojectpage} btn-
               
               
               id={id}>
