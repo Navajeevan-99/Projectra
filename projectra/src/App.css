@@ -38,7 +38,7 @@ input{
 }
 .centervertical{
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 input:focus{
   outline:none;

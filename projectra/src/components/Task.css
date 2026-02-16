@@ -1,6 +1,17 @@
 .taskcard{
-    border: solid 2px black;
+    border: solid 6px lightgrey;
     width: 700px;
     height: 800px;
+    border-radius: 10px;
     
+}
+.sprintdetailsadd{
+    margin-top: 50px;
+    background-color: white;
+    border: none;
+    width: auto;
+}
+.sprintdetailsadd:focus{
+    border: solid 5px #074ada;
+    border-radius: 5px;
 }
