@@ -1,8 +1,9 @@
 .taskcard{
     border: solid 6px lightgrey;
-    width: 700px;
-    height: 800px;
+    width: 100vw;
+    height: 100vh;
     border-radius: 10px;
+
     
 }
 .sprintdetailsadd{
