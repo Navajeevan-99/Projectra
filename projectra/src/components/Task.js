@@ -1,11 +1,16 @@
 import react from 'react'
 import './Task.css'
+import { useSelector } from 'react-redux'
 const Task=()=>{
+    let user =useSelector((state)=> state.user);
+    const addtask()=>{
+        console.log('Clicked');
+    }
 return (
 
     <div className='center taskcard'>
-        <div className='center row taskcardinner'>
-        <div className="centervertical column">
+        <div className='center row taskcardinner' >
+        <div className="centervertical column" style={{borderRight:'2px solid black'}}>
         <input type="text" placeholder="Task name" className='sprintdetailsadd'/>
         <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'auto'}}>
         </textarea>
@@ -31,7 +36,7 @@ return (
                 </td>
                 <td></td>
                 <td>
-                    <p></p>
+                    <p>{user.name}</p>
                 </td>
             </tr>
         <tr>
@@ -64,7 +69,9 @@ return (
         </tbody>
         </table>
         </div>
+        <button onClick={addtask}> Add Task</button>
         </div>
+      
     </div>
 )
 

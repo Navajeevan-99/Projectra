@@ -25,3 +25,10 @@
     flex-direction: column;    
     margin: 30px 30px 30px 30px;
  }
+ .taskaddbar{
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   right: 0px;
+   bottom: 0px;
+ }
