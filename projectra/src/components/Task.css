@@ -34,3 +34,7 @@
    font-size: 12px;
    font-weight: 400;
 }
+.taskaddbutton{
+    position: relative;
+    top:90px;
+}

@@ -1,18 +1,34 @@
-import react from 'react'
+import react ,{useState} from 'react'
 import './Task.css'
 import { useSelector } from 'react-redux'
 const Task=()=>{
+    
+    const [taskdetails,settaskdetails]=useState({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''});
     let user =useSelector((state)=> state.user);
-    const addtask()=>{
-        console.log('Clicked');
+    const addtask=()=>{
+        console.log('Clicked');   
+        settaskdetails({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''})    
+       
+    }
+    const changetaskname=(e)=>{
+        settaskdetails({...taskdetails,name: e.target.value})
+    }
+    const changedescription=(e)=>{
+        settaskdetails({...taskdetails,description: e.target.value})
+    }
+    const changestartdate=(e)=>{
+        settaskdetails({...taskdetails,startdate : e.target.value})
+    }
+    const changeenddate=(e)=>{
+        settaskdetails({...taskdetails,enddate : e.target.value})
     }
 return (
 
     <div className='center taskcard'>
         <div className='center row taskcardinner' >
         <div className="centervertical column" style={{borderRight:'2px solid black'}}>
-        <input type="text" placeholder="Task name" className='sprintdetailsadd'/>
-        <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'auto'}}>
+        <input type="text" placeholder="Task name" className='sprintdetailsadd' value={taskdetails.name} onChange={changetaskname}/>
+        <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'auto'}} value={taskdetails.description} onChange={changedescription}> 
         </textarea>
         </div>
         <div className='centervertical column'>
@@ -25,7 +41,7 @@ return (
                 <td></td>
                 <td>
                     <select>
-                        <option>Jeevan</option>
+                        <option >Jeevan</option>
                         <option>Leo</option>
                     </select>
                 </td>
@@ -45,7 +61,7 @@ return (
             </td>
             <td></td>
            <td>
-        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}} />
+        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}} value={taskdetails.startdate} onChange={changestartdate}/>
             </td>
         </tr>
         <tr>
@@ -54,7 +70,7 @@ return (
         </td>
         <td></td>
         <td>
-        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}}/>
+        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}} value={taskdetails.enddate} onChange={changeenddate}/>
         </td>
         </tr>
         <tr>
@@ -69,7 +85,7 @@ return (
         </tbody>
         </table>
         </div>
-        <button onClick={addtask}> Add Task</button>
+        <button onClick={addtask} className='taskaddbutton'> Add Task</button>
         </div>
       
     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useLocation } from 'react-router-dom'
 import Headerkanban from './Headerkanban';
 import Kboard from './Kboard';
@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import './Kanban.css'
 const Kanban = () => {
     const {state}=useLocation();
-    
+    const [tasksdetails,settasksdetails]=useState([]);
   return (
     <div>
         <div>
