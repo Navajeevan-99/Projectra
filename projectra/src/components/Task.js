@@ -1,13 +1,16 @@
 import react ,{useState} from 'react'
 import './Task.css'
 import { useSelector } from 'react-redux'
-const Task=()=>{
+const Task=({pro})=>{
     
     const [taskdetails,settaskdetails]=useState({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''});
     let user =useSelector((state)=> state.user);
     const addtask=()=>{
-        console.log('Clicked');   
+        let tasks=JSON.parse(localStorage.getItem("task")) || [];
+        tasks.push(taskdetails);
+        pro(false); 
         settaskdetails({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''})    
+        localStorage.setItem("task",JSON.stringify(tasks))
        
     }
     const changetaskname=(e)=>{
@@ -22,10 +25,14 @@ const Task=()=>{
     const changeenddate=(e)=>{
         settaskdetails({...taskdetails,enddate : e.target.value})
     }
+    const closetask=()=>{
+        pro(false);
+    }
 return (
 
     <div className='center taskcard'>
         <div className='center row taskcardinner' >
+        <button onClick={closetask} style={{backgroundColor: 'rgba(0,0,0,0)',position:'absolute',top:'250px',left:' 1130px',color:'black',fontSize:'20px'}}>x</button>
         <div className="centervertical column" style={{borderRight:'2px solid black'}}>
         <input type="text" placeholder="Task name" className='sprintdetailsadd' value={taskdetails.name} onChange={changetaskname}/>
         <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'auto'}} value={taskdetails.description} onChange={changedescription}> 
