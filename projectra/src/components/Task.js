@@ -1,9 +1,9 @@
-import react ,{useState} from 'react'
+import react ,{useEffect, useRef, useState} from 'react'
 import './Task.css'
 import { useSelector } from 'react-redux'
-const Task=({pro})=>{
-    
-    const [taskdetails,settaskdetails]=useState({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''});
+const Task=({pro,task,setshowtaskdetails,showtaskdetails})=>{
+    let taskidref=useRef(0)
+    const [taskdetails,settaskdetails]=useState({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:'',boardno: 0,submitbutton: false,id:taskidref.current});
     let user =useSelector((state)=> state.user);
     const addtask=()=>{
         let tasks=JSON.parse(localStorage.getItem("task")) || [];
@@ -11,8 +11,13 @@ const Task=({pro})=>{
         pro(false); 
         settaskdetails({name:'',description:'',assignedfor:'',assignedby:'',startdate:'',enddate:''})    
         localStorage.setItem("task",JSON.stringify(tasks))
-       
+        taskidref.current=taskidref.current+1;
     }
+   useEffect(()=>{
+    if (task){
+        settaskdetails({...taskdetails,...task,submitbutton: true });
+    }
+   },[])
     const changetaskname=(e)=>{
         settaskdetails({...taskdetails,name: e.target.value})
     }
@@ -27,6 +32,16 @@ const Task=({pro})=>{
     }
     const closetask=()=>{
         pro(false);
+        if (setshowtaskdetails){
+            setshowtaskdetails({show: false,taskno: -1})
+        }
+    }
+    const changetask=()=>{
+        let tasks=JSON.parse(localStorage.getItem("task"))
+        tasks[showtaskdetails.taskno]=taskdetails;
+        setshowtaskdetails({show:false,taskno:-1})
+        localStorage.setItem('task',JSON.stringify(tasks))
+
     }
 return (
 
@@ -91,9 +106,15 @@ return (
         </tr>
         </tbody>
         </table>
+       
         </div>
-        <button onClick={addtask} className='taskaddbutton'> Add Task</button>
+         {
+        taskdetails.submitbutton?
+        <button onClick={changetask} className='taskaddbutton'>Change</button>
+        :
+        <button onClick={addtask} className='taskaddbutton'> Add Task</button>}
         </div>
+        
       
     </div>
 )
