@@ -4,8 +4,7 @@ import Headerkanban from './Headerkanban';
 import Kboard from './Kboard';
 import Navbar from './Navbar';
 import './Kanban.css'
-import { DndContext } from '@dnd-kit/core';
-import { SortableContext } from '@dnd-kit/sortable';
+
 const Kanban = () => {
     const {state}=useLocation();
     const [tasksdetails,settasksdetails]=useState([]);

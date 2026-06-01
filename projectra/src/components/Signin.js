@@ -67,15 +67,15 @@ const Signin = () => {
     <div className='center fullpage'>
 
     <form className='formsignin center column'>
-        <h1>Sign In</h1>
+        <h1 style={{fontSize:'40px'}}>Sign In</h1>
         <table className='tablesingin '>
         <tbody>
            
             <tr>
-                <td><p>Email</p></td><td></td><td><input type='email' value={email} onChange={emailchange}/> </td>
+                <td><p>Email</p></td><td></td><td><input className='signinput' type='email' value={email} onChange={emailchange} placeholder='Enter the E-Mail'/> </td>
             </tr>
             <tr>
-                <td><p>Password</p></td><td></td><td><input type='password' value={password} onChange={passwordchange}/> </td>
+                <td><p>Password</p></td><td></td><td><input className='signinput' type='password' value={password} onChange={passwordchange} placeholder='Enter the Password'/> </td>
             </tr>
             <tr>
                 <td><button type="button" onClick={gotosignup}>Sign Up</button></td><td></td><td><button onClick={checkuser}>Sign In</button></td>

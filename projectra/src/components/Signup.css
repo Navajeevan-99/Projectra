@@ -1,11 +1,12 @@
 .formsignup{
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(13, 154, 215, 0.2);
 
     border-radius: 10px;
-    border: solid 5px blue;
-    width: 500px;
-    height: auto;
-    font-size: 15px;
+    border: solid 10px blue;
+    width: 550px;
+    height: 600px;
+    
+    font-size: 25px;
     font-weight: bold;
    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     

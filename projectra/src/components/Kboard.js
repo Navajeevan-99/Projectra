@@ -34,13 +34,13 @@ useEffect(()=>{
     <button onClick={showTask} style={{backgroundColor:'rgba(0,0,0,0.1)',width:'250px',borderRadius:'5px',color:'black'}}>Create +</button>}
     {tasksdetails && 
       tasksdetails.map((task,i)=>
-      <div className='taskscard'>
+      <div className='taskscard' style={{marginBottom:'10px'}}>
         {
           props.props.boardno===task.boardno &&
-        <button onClick={()=>{
+        <button className='centervertical' onClick={()=>{
           seeandeditdetails(task.id);
-        }}>
-        {task.name}</button>}
+        }} style={{backgroundColor: 'rgba(0,0,0,0)',color:'black',width:'200px'}}>
+        <div style={{backgroundColor: 'red',width:'10px',height:'10px',marginRight:'20px'}}></div>{task.name.substring(0,19)+ (task.name.length>19?'...':'')}</button>}
       </div>
       )
     }

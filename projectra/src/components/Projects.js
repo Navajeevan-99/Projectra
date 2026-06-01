@@ -22,6 +22,9 @@ const Projects =() => {
   const nextPage=()=>{
     setaddprojectstatus({...addprojectstatus,page: addprojectstatus.page+1});
   }
+  const previousPage=()=>{
+    setaddprojectstatus({...addprojectstatus,page: addprojectstatus.page-1 });
+  }
   const createProject=()=>{
     
     setprojects([...projects,projectdetails])
@@ -77,21 +80,27 @@ const Projects =() => {
             <button className='closebutton' onClick={cancelProject}>X</button>
             <br/>
             <div className='addingprojectinner'>
-            <input type='text' value={projectdetails.name} onChange={changeprojectname} className='projectinput' placeholder='Enter your projectname ...'/>
+            <input type='text' value={projectdetails.name} onChange={changeprojectname} className='projectinput' placeholder='Enter your projectname ...' style={{width:'600px'}}/>
               
               <button className='nextbutton' onClick={nextPage}>Next</button>
-            
+              
             </div>
             
             </div>:addprojectstatus.page==2? <div className='addingprojectouter'>
             <button className='closebutton' onClick={cancelProject}>X</button>
             <br/>
-            <div className='addingprojectinner'>              
+            <div className='addingprojectinner center'>
+              
+              <div className='center centervertical' style={{fontSize:'25px'}}>
+              <div className='center ' style={{backgroundColor:'lightcoral',width:'150px',borderRadius:'10px',height:'70px'}} >   
+              
               <input type='radio' name='board' id='kanban' value='kanban' onChange={boardChange}/>
-              <label htmlFor='kanban'>Kanban</label>
+              <label style={{marginLeft:'10px'}} for='kanban' >Kanban</label></div>
+              <div className='center' style={{backgroundColor:'lightblue',width:'150px',borderRadius:'10px',height:'70px',marginTop:'10px'}}>
               <input type='radio' name='board' id='scrum' value='scrum' onChange={boardChange}/>
-              <label htmlFor='scrum'>scrum</label>
-              <button className='nextbutton' onClick={createProject}>Create</button>
+              <label style={{marginLeft:'10px'}} for='scrum'>Scrum</label></div></div>
+              <button className='nextbutton' onClick={createProject} style={{position: 'absolute',left:'710px'}}>Create</button>
+              <button className='nextbutton' onClick={previousPage} style={{position: 'absolute',left:'10px'}}>Previous</button>
             </div>
             
             </div>:<div></div>     

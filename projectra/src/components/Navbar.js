@@ -14,7 +14,7 @@ const Navbar = () => {
           <button className='Navmenu'><GiHamburgerMenu /></button>
         </div>
         <div className='projectname centervertical'>
-          <p>Projectra</p>
+          <p style={{padding:'0px',height:'25px',marginTop:'auto',marginBottom:'auto'}}>Projectra</p>
         </div>
         <div className='center searchouter'>
           <div className='searchinner center'>

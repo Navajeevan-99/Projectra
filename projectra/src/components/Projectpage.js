@@ -73,10 +73,20 @@ export const Projectpage = () => {
                 addsprintstatus.page==1?<div className='addingprojectouter'>
             <button className='closebutton' onClick={cancelSprint}>X</button>
             <br/>
-            <div className='addingprojectinner'>
-            <input type='text' value={sprint.name} onChange={changesprintname} className='projectinput' placeholder='Enter your sprintname ...'/>
-            <input type='date' className='projectinput' value={sprint.startdate} onChange={changestartdate}/>
-            <input type='date' className='projectinput' value={sprint.enddate} onChange={changeenddate}/>
+            <div className='addingprojectinner center' >
+             <table style={{backgroundColor:'red'}}> 
+              <tbody>
+                <tr><td style={{backgroundColor:'red'}}> Sprint Name</td><td></td>
+                  <td>
+            <input type='text' value={sprint.name} onChange={changesprintname} className='projectinput' placeholder='Enter your sprintname ...' style={{width:'200px',backgroundColor:'red'}}/></td></tr>
+            <tr>
+              <td>Start Date</td><td></td>
+              <td>
+            <input type='date' className='projectinput' value={sprint.startdate} onChange={changestartdate}/></td></tr>
+            <tr>
+              <td>End Date</td><td></td>
+              <td>
+            <input type='date' className='projectinput' value={sprint.enddate} onChange={changeenddate}/></td></tr></tbody></table>
               <button className='nextbutton' onClick={nextPage} style={{top: '70%'}}>Next</button>
             
             </div>

@@ -48,9 +48,9 @@ return (
     <div className='center taskcard'>
         <div className='center row taskcardinner' >
         <button onClick={closetask} style={{backgroundColor: 'rgba(0,0,0,0)',position:'absolute',top:'250px',left:' 1130px',color:'black',fontSize:'20px'}}>x</button>
-        <div className="centervertical column" style={{borderRight:'2px solid black'}}>
-        <input type="text" placeholder="Task name" className='sprintdetailsadd' value={taskdetails.name} onChange={changetaskname}/>
-        <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'auto'}} value={taskdetails.description} onChange={changedescription}> 
+        <div className="centervertical column" style={{borderRight:'2px solid black',width:'400px'}}>
+        <input type="text" placeholder="Task name" className='sprintdetailsadd' style={{width:'370px'}} value={taskdetails.name} onChange={changetaskname}/>
+        <textarea cols={50} placeholder="Description" className='sprintdetailsadd descriptiontask' style={{width:'370px'}} value={taskdetails.description} onChange={changedescription}> 
         </textarea>
         </div>
         <div className='centervertical column'>
@@ -97,7 +97,34 @@ return (
         </tr>
         <tr>
         <td className='taskdetails'>
+            Priority
+        </td>
+        <td></td>
+        <td>
+        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}} value={taskdetails.enddate} onChange={changeenddate}/>
+        </td>
+        </tr>
+        <tr>
+        <td className='taskdetails'>
+            Points
+        </td>
+        <td></td>
+        <td>
+        <input type="date" className='sprintdetailsadd' style={{margin:'0px'}} value={taskdetails.enddate} onChange={changeenddate}/>
+        </td>
+        </tr>
+        <tr>
+        <td className='taskdetails'>
             Background Color
+        </td>
+        <td></td>
+        <td>
+        <input type='color' className='sprintdetailsadd' style={{width:'100px',margin:'0px'}}/>
+        </td>
+        </tr>
+        <tr>
+        <td className='taskdetails'>
+            Color Label
         </td>
         <td></td>
         <td>

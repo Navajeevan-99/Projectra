@@ -67,18 +67,18 @@ const Signup = () => {
   return (
     <div className='center fullpage' >
         <form className='formsignup center column'>
-        <h1 className='center'>Sign Up</h1>
+        <h1 className='center' style={{fontSize:'40px'}}>Sign Up</h1>
         <table className='tablesignup'>
             
         <tbody>
             <tr>
-                <td><p>Name</p></td><td></td><td><input type='text' value={name} onChange={namechange} placeholder='Enter your Name'/> </td>
+                <td><p>Name</p></td><td></td><td><input className='signinput' type='text' value={name} onChange={namechange} placeholder='Enter the Name'/> </td>
             </tr>
             <tr>
-                <td><p>Email</p></td><td></td><td><input type='email' value={email} onChange={emailchange} placeholder='Enter your E-mail'/> </td>
+                <td><p>Email</p></td><td></td><td><input className='signinput' type='email' value={email} onChange={emailchange} placeholder='Enter the E-mail'/> </td>
             </tr>
             <tr>
-                <td><p>Password</p></td><td></td><td><input type='password' value={password} onChange={passwordchange} placeholder='Enter your Password'/> </td>
+                <td><p>Password</p></td><td></td><td><input className='signinput' type='password' value={password} onChange={passwordchange} placeholder='Enter the Password'/> </td>
             </tr>
             <tr>
                 <td><button type="button" onClick={addnewuser}>Sign Up</button></td><td></td><td><button type='button' onClick={gotologin}>Sign In</button></td>
