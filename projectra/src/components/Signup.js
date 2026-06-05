@@ -7,6 +7,7 @@ const Signup = () => {
         const [name,setname]=useState('');
         const [email,setemail]=useState ('');
         const [password,setpassword]=useState('');
+        const [checkeduser,setcheckeduser]=useState({existuser:false,usernamezero:false,isnotemail:false,emailzero:false,passwordzero:false,passwordcondition:true,usernameexist: false})
         let useradded=useRef('false');
         const namechange=(e)=>{
             setname(e.target.value);
@@ -29,7 +30,7 @@ const Signup = () => {
                 body: JSON.stringify(
                     {
                        name: name,
-                       email: email,
+                       email: email.toLowerCase(),
                        password: password 
                     }
                 )         
@@ -43,14 +44,15 @@ const Signup = () => {
                 console.log(response.msg)
             });
             console.log(useradded.current)
-            if (useradded.current==='true'){
+            if (useradded.current.existuser===false && useradded.current.usernamezero===false && useradded.current.isnotemail===false && useradded.current.emailzero ===false && useradded.current.passwordzero===false && useradded.current.passwordcondition===true && useradded.current.usernameexist===false){
                 alert('Sucessfull Sign Up');
                 navigate('/login');
             }
-            else{
-                alert('User is already exists');
-                navigate('/');
-            }
+            // else{
+            //     alert('User is already exists');
+            //     navigate('/');
+            // }
+            setcheckeduser({...useradded.current});
         }
         const gotologin=()=>{
             navigate('/login',{state: {name,email,password}});
@@ -75,10 +77,37 @@ const Signup = () => {
                 <td><p>Name</p></td><td></td><td><input className='signinput' type='text' value={name} onChange={namechange} placeholder='Enter the Name'/> </td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td>
+                {
+                   checkeduser.usernameexist && <p style={{color:'red',fontSize:'12px',textAlign:'left'}}>User is already exists</p>}
+                { checkeduser.usernamezero && <p style={{color:'red',fontSize:'12px',textAlign:'left'}}>User name must Enter</p>}  </td>
+                
+            </tr>
+            <tr>
                 <td><p>Email</p></td><td></td><td><input className='signinput' type='email' value={email} onChange={emailchange} placeholder='Enter the E-mail'/> </td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td>
+                {checkeduser.emailzero &&<p style={{color:'red',fontSize:'12px',textAlign:'left'}}>Email must want to enter</p>}
+                {checkeduser.isnotemail &&<p style={{color:'red',fontSize:'12px',textAlign:'left'}}>This is not email</p>}
+                </td>
+                
+                </tr>
+            <tr>
                 <td><p>Password</p></td><td></td><td><input className='signinput' type='password' value={password} onChange={passwordchange} placeholder='Enter the Password'/> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    {checkeduser.passwordzero && <p style={{color:'red',fontSize:'12px',textAlign:'left'}}>Password must have length greater than 6</p>}
+                    {!checkeduser.passwordcondition && <p style={{color:'red',fontSize:'12px',textAlign:'left'}}>Password must atleast have one uppercase,lowercase and special character</p>}
+                    
+                </td>
             </tr>
             <tr>
                 <td><button type="button" onClick={addnewuser}>Sign Up</button></td><td></td><td><button type='button' onClick={gotologin}>Sign In</button></td>

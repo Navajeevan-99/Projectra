@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from './Navbar'
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import './Projectpage.css'
 export const Projectpage = () => {
   const navigate=useNavigate()
     let [addsprintstatus,setaddsprintstatus]=useState({add:false,previous:'',page: 1})
@@ -74,20 +75,20 @@ export const Projectpage = () => {
             <button className='closebutton' onClick={cancelSprint}>X</button>
             <br/>
             <div className='addingprojectinner center' >
-             <table style={{backgroundColor:'red'}}> 
+             <table > 
               <tbody>
-                <tr><td style={{backgroundColor:'red'}}> Sprint Name</td><td></td>
+                <tr><td> Sprint Name</td><td></td>
                   <td>
-            <input type='text' value={sprint.name} onChange={changesprintname} className='projectinput' placeholder='Enter your sprintname ...' style={{width:'200px',backgroundColor:'red'}}/></td></tr>
+            <input type='text' value={sprint.name} onChange={changesprintname}  className='sprintinput' placeholder='Enter your sprintname ...' style={{width:'200px',marginTop:'0px'}}/></td></tr>
             <tr>
               <td>Start Date</td><td></td>
               <td>
-            <input type='date' className='projectinput' value={sprint.startdate} onChange={changestartdate}/></td></tr>
+            <input type='date'  value={sprint.startdate} onChange={changestartdate} className='sprintinput'/></td></tr>
             <tr>
               <td>End Date</td><td></td>
               <td>
-            <input type='date' className='projectinput' value={sprint.enddate} onChange={changeenddate}/></td></tr></tbody></table>
-              <button className='nextbutton' onClick={nextPage} style={{top: '70%'}}>Next</button>
+            <input type='date'  value={sprint.enddate} onChange={changeenddate} className='sprintinput' /></td></tr></tbody></table>
+              <button className='nextbutton' onClick={nextPage} style={{top: '40%',left:'20%'}}>Next</button>
             
             </div>
             

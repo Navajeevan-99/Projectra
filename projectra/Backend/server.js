@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
-import { adduser } from './user.js';
+import { userchecking } from './Functions/user.js';
+import { adduser } from './Database/userdbhandling.js';
 const server = express();
 import { MongoClient } from 'mongodb';
 server.use(express.json());
@@ -33,15 +34,16 @@ server.get('/api/users', async (req, res) => {
 server.post('/api/users',async (req,res)=>{
     const {name,email,password}=req.body;
     console.log(name)
-    let useradded= await adduser(db,req.body);
-    console.log(useradded)
-    if (useradded===false){
-        console.log("adding")
-    res.json({msg: "true"});
+    let userchecked= await userchecking(dib,req.body);
+    console.log(userchecked)
+    if (userchecked.isnotemail===false && userchecked.existuser===false && userchecked.usernameexist===false && userchecked.emailzero===false && userchecked.passwordzero===false && userchecked.passwordcondition===true){
+        console.log("adding");
+        adduser(db,req.body);
+    res.json({msg: userchecked});
     }
     else{
         console.log('not adding')
-        res.json({msg: "false"});
+        res.json({msg: userchecked});
     }
 })
 

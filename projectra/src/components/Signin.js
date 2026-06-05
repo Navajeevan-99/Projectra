@@ -13,6 +13,7 @@ const Signin = () => {
     const [name,setname]=useState('')
     const [email,setemail]=useState ('');
     const [password,setpassword]=useState('');
+    const [checkeduser,setcheckeduser]=useState({passwordcorrect:true})
     let users=useRef([]);
     const gotosignup=(e)=>{
         e.preventDefault();
@@ -28,8 +29,19 @@ const Signin = () => {
         });
         let userexist=false;
         let u;
+        let cuemail=email;
+        if (!email.endsWith('@gmail.com')){
+            cuemail=cuemail+'@gmail.com';
+            cuemail=cuemail.toLowerCase();
+            
+        }
+        console.log(cuemail)
+        console.log(password)
         users.current.map((user)=>{
-            if (user.email===email && user.password===password){
+            if (user.email && !user.password===password){
+                    setcheckeduser({...checkeduser,passwordcorrect:false})
+            }
+            if (user.email===cuemail && user.password===password){
                 
                 userexist=true;
                 u=user;
@@ -76,6 +88,11 @@ const Signin = () => {
             </tr>
             <tr>
                 <td><p>Password</p></td><td></td><td><input className='signinput' type='password' value={password} onChange={passwordchange} placeholder='Enter the Password'/> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td> {!checkeduser.passwordcorrect &&<p style={{color:'red',fontSize:'12px',textAlign:'left'}}>Incorrect password</p>}</td>
             </tr>
             <tr>
                 <td><button type="button" onClick={gotosignup}>Sign Up</button></td><td></td><td><button onClick={checkuser}>Sign In</button></td>

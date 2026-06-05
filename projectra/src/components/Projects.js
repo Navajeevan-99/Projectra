@@ -62,16 +62,22 @@ const Projects =() => {
             <p>Create Project</p>   
             </button>                 
           </div> 
+          
           {
             projects.map((project,id)=>
               <button key={id} className='projectcard' onClick={gotoprojectpage} btn-
               
               
               id={id}>
-              <h2 style={{overflow: 'hidden'}}>{project.name}</h2>
+                <h1>📋</h1>
+              {
+                project.name.length<=7 ?
+              <h2 style={{overflow: 'hidden',marginTop:'-10px'}}>{project.name}</h2>:<h2 style={{overflow: 'hidden',marginTop:'-10px'}}>{project.name.substring(0,7)+'...'}</h2>
               
-              <hr style={{border: 'solid 1px black'}}/>             
-              <p>{project.board}</p>
+              }
+              
+              <hr style={{border: 'solid 1px black',width:'124px',marginLeft:'-10px',marginTop:'-10px'}}/>             
+              <p >{project.board}</p>
               </button>
             )
           }        
@@ -94,11 +100,11 @@ const Projects =() => {
               <div className='center centervertical' style={{fontSize:'25px'}}>
               <div className='center ' style={{backgroundColor:'lightcoral',width:'150px',borderRadius:'10px',height:'70px'}} >   
               
-              <input type='radio' name='board' id='kanban' value='kanban' onChange={boardChange}/>
-              <label style={{marginLeft:'10px'}} for='kanban' >Kanban</label></div>
+              <input type='radio' name='board' id='Kanban' value='Kanban' onChange={boardChange}/>
+              <label style={{marginLeft:'10px'}} for='Kanban' >Kanban</label></div>
               <div className='center' style={{backgroundColor:'lightblue',width:'150px',borderRadius:'10px',height:'70px',marginTop:'10px'}}>
-              <input type='radio' name='board' id='scrum' value='scrum' onChange={boardChange}/>
-              <label style={{marginLeft:'10px'}} for='scrum'>Scrum</label></div></div>
+              <input type='radio' name='board' id='Scrum' value='Scrum' onChange={boardChange}/>
+              <label style={{marginLeft:'10px'}} for='Scrum'>Scrum</label></div></div>
               <button className='nextbutton' onClick={createProject} style={{position: 'absolute',left:'710px'}}>Create</button>
               <button className='nextbutton' onClick={previousPage} style={{position: 'absolute',left:'10px'}}>Previous</button>
             </div>

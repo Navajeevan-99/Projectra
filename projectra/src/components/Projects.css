@@ -79,6 +79,6 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     color: black;
-    background: radial-gradient(circle,white,lightblue);
+    background: linear-gradient(to right,rgba(206, 9, 164, 0.2),rgba(4, 12, 241,0.2));
 
 }
